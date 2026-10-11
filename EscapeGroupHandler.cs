@@ -1,8 +1,9 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
+
 public class EscapeGroupHandler : MonoBehaviour
 {
     public PlayerController playerController;
@@ -25,12 +26,12 @@ public class EscapeGroupHandler : MonoBehaviour
         {
             if (!isEscapeMenuOpened)
             {
-                //Debug.Log("Открываю меню");
+                //Debug.Log("РћС‚РєСЂС‹РІР°СЋ РјРµРЅСЋ");
                 OpenMenu();
             }
             else
             {
-                //Debug.Log("Закрываю меню");
+                //Debug.Log("Р—Р°РєСЂС‹РІР°СЋ РјРµРЅСЋ");
                 CloseMenu();
             }
         }
@@ -46,7 +47,7 @@ public class EscapeGroupHandler : MonoBehaviour
         tween = canvas_group_escapeGroup.DOFade(1f, 0.5f).OnComplete(() =>
         {
             tween = null;
-            //Debug.Log("Меню открыл");
+            //Debug.Log("РњРµРЅСЋ РѕС‚РєСЂС‹Р»");
         });
         isEscapeMenuOpened = true;
     }
@@ -59,7 +60,7 @@ public class EscapeGroupHandler : MonoBehaviour
         tween = canvas_group_escapeGroup.DOFade(0f, 0.5f).OnComplete(() =>
         {
             tween = null;
-            //Debug.Log("Меню закрыл");
+            //Debug.Log("РњРµРЅСЋ Р·Р°РєСЂС‹Р»");
         });
         isEscapeMenuOpened = false;
     }
@@ -75,7 +76,7 @@ public class EscapeGroupHandler : MonoBehaviour
     }
     public void ContinueButtonClicked()
     {
-        //Debug.Log("Закрываю меню по кнопке \"Продолжить\"");
+        //Debug.Log("Р—Р°РєСЂС‹РІР°СЋ РјРµРЅСЋ РїРѕ РєРЅРѕРїРєРµ \"РџСЂРѕРґРѕР»Р¶РёС‚СЊ\"");
         CloseMenu();
     }
     public void ToMenuButtonClicked()
@@ -101,7 +102,7 @@ public class EscapeGroupHandler : MonoBehaviour
         sampleSceneRestart.animator_sample_scene.SetTrigger("SetBlackout");
         yield return new WaitForSecondsRealtime(3.5f);
         Application.Quit();
-        Debug.Log("МЫ ВЫШЛИ ИЗ ИГРЫ");
+        Debug.Log("РњР« Р’Р«РЁР›Р РР— РР“Р Р«");
     }
 
     public void SensChanged()

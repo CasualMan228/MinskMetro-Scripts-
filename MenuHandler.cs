@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,24 +27,24 @@ public class MenuHandler : MonoBehaviour
                 case "first":
                     {
                         PlayerPrefs.SetInt("Quality", 1);
-                        Debug.Log("Графика -> 1");
+                        Debug.Log("Р“СЂР°С„РёРєР° -> 1");
                         break;
                     }
                 case "second":
                     {
                         PlayerPrefs.SetInt("Quality", 2);
-                        Debug.Log("Графика -> 2");
+                        Debug.Log("Р“СЂР°С„РёРєР° -> 2");
                         break;
                     }
                 case "third":
                     {
                         PlayerPrefs.SetInt("Quality", 3);
-                        Debug.Log("Графика -> 3");
+                        Debug.Log("Р“СЂР°С„РёРєР° -> 3");
                         break;
                     }
                 default:
                     {
-                        Debug.Log("Некорректный аргумент!");
+                        Debug.Log("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ Р°СЂРіСѓРјРµРЅС‚!");
                         break;
                     }
             }

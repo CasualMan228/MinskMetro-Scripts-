@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using UnityEngine;
 
 public class NavHandler : MonoBehaviour
@@ -11,7 +11,7 @@ public class NavHandler : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("—ÂÚÍ‡ -> ˜ËÒÚÓ ÒÚ‡ÌˆËˇ");
+        Debug.Log("–°–µ—Ç–∫–∞ -> —á–∏—Å—Ç–æ —Å—Ç–∞–Ω—Ü–∏—è");
         navStation.SetActive(true);
         navStation_train1way.SetActive(false);
         navStation_train2way.SetActive(false);
@@ -19,12 +19,12 @@ public class NavHandler : MonoBehaviour
     }
     public void Start1Way()
     {
-        Debug.Log("—ÂÚÍ‡ ·Û‰ÂÚ -> ÒÚ‡ÌˆËˇ + 1 ÔÛÚ¸");
+        Debug.Log("–°–µ—Ç–∫–∞ –±—É–¥–µ—Ç -> —Å—Ç–∞–Ω—Ü–∏—è + 1 –ø—É—Ç—å");
         StartCoroutine(ChangeNavMesh(navStation_train1way));
     }
     public void Start2Way()
     {
-        Debug.Log("—ÂÚÍ‡ ·Û‰ÂÚ -> ÒÚ‡ÌˆËˇ + 2 ÔÛÚ¸");
+        Debug.Log("–°–µ—Ç–∫–∞ –±—É–¥–µ—Ç -> —Å—Ç–∞–Ω—Ü–∏—è + 2 –ø—É—Ç—å");
         StartCoroutine(ChangeNavMesh(navStation_train2way));
     }
     IEnumerator ChangeNavMesh(GameObject navmesh)

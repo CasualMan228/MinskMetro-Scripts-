@@ -1,4 +1,4 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
 public class SetQualityScript : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class SetQualityScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Неверное значение уровня графики! Ставлю low");
+            Debug.Log("РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СѓСЂРѕРІРЅСЏ РіСЂР°С„РёРєРё! РЎС‚Р°РІР»СЋ low");
             QualitySettings.SetQualityLevel(0);
         }
     }

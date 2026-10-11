@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using UnityEngine;
 
 public class MusicHandler : MonoBehaviour
@@ -15,14 +15,14 @@ public class MusicHandler : MonoBehaviour
     IEnumerator StartMusicHandlerCoroutine()
     {
         yield return new WaitForSecondsRealtime(30f);
-        Debug.Log("ÃÛÁ˚Í‡ 2 „Ó");
+        Debug.Log("–ú—É–∑—ã–∫–∞ 2 –≥–æ");
         StartCoroutine(FadeOut(music, 3f));
         StartCoroutine(FadeIn(music2, 3f));
 
         yield return new WaitForSecondsRealtime(115f);
         if (!playerController.isInTrain)
         {
-            Debug.Log("ÃÛÁ˚Í‡ 1 „Ó");
+            Debug.Log("–ú—É–∑—ã–∫–∞ 1 –≥–æ");
             StartCoroutine(FadeOutAndStop(music2, 3f));
             StartCoroutine(FadeIn(music, 3f));
         }
@@ -51,7 +51,7 @@ public class MusicHandler : MonoBehaviour
             {
                 currentTime += Time.unscaledDeltaTime;
                 source.volume = Mathf.Lerp(startVolume, 0f, currentTime / duration);
-                yield return null; //Í‡‰ -> ËÚÂ‡ˆËˇ
+                yield return null; //–∫–∞–¥—Ä -> –∏—Ç–µ—Ä–∞—Ü–∏—è
             }
             source.volume = 0f;
         }

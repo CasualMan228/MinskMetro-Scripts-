@@ -1,4 +1,4 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     public float playerSpeed = 5f;
     public float sensitivity = 200f;
-    private float xRotation = 0f; //контроль вертикального угла
+    private float xRotation = 0f; //РєРѕРЅС‚СЂРѕР»СЊ РІРµСЂС‚РёРєР°Р»СЊРЅРѕРіРѕ СѓРіР»Р°
 
     public bool isInTrain = false;
+
+    //public MobileJoystick mobileJoystick; //try for android
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -27,12 +29,12 @@ public class PlayerController : MonoBehaviour
 
             if (isInTrain)
             {
-                //синхронизация Agent с фактическим положением игрока после движения поезда
+                //СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ Agent СЃ С„Р°РєС‚РёС‡РµСЃРєРёРј РїРѕР»РѕР¶РµРЅРёРµРј РёРіСЂРѕРєР° РїРѕСЃР»Рµ РґРІРёР¶РµРЅРёСЏ РїРѕРµР·РґР°
                 agent.nextPosition = transform.position;
 
                 MovePlayer();
 
-                //теперь переносим игрока туда, куда его переместил NavMeshAgent
+                //С‚РµРїРµСЂСЊ РїРµСЂРµРЅРѕСЃРёРј РёРіСЂРѕРєР° С‚СѓРґР°, РєСѓРґР° РµРіРѕ РїРµСЂРµРјРµСЃС‚РёР» NavMeshAgent
                 transform.position = agent.nextPosition;
             }
             else
@@ -45,31 +47,71 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 direction = Vector3.zero;
 
-        //сбор ввода по WASD относительно направления камеры
+        //СЃР±РѕСЂ РІРІРѕРґР° РїРѕ WASD РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РЅР°РїСЂР°РІР»РµРЅРёСЏ РєР°РјРµСЂС‹
         if (Input.GetKey(KeyCode.W)) direction += cam.forward;
         if (Input.GetKey(KeyCode.S)) direction -= cam.forward;
         if (Input.GetKey(KeyCode.A)) direction -= cam.right;
         if (Input.GetKey(KeyCode.D)) direction += cam.right;
 
-        //ОБНУЛЯЕМ Y ДО НОРМАЛИЗАЦИИ: исключаем влияние наклона камеры на скорость
+        //РћР‘РќРЈР›РЇР•Рњ Y Р”Рћ РќРћР РњРђР›РР—РђР¦РР: РёСЃРєР»СЋС‡Р°РµРј РІР»РёСЏРЅРёРµ РЅР°РєР»РѕРЅР° РєР°РјРµСЂС‹ РЅР° СЃРєРѕСЂРѕСЃС‚СЊ
         direction.y = 0;
 
-        //НОРМАЛИЗУЕМ ОДИН РАЗ В КОНЦЕ: выравниваем скорость по диагоналям до честной единицы
+        //РќРћР РњРђР›РР—РЈР•Рњ РћР”РРќ Р РђР— Р’ РљРћРќР¦Р•: РІС‹СЂР°РІРЅРёРІР°РµРј СЃРєРѕСЂРѕСЃС‚СЊ РїРѕ РґРёР°РіРѕРЅР°Р»СЏРј РґРѕ С‡РµСЃС‚РЅРѕР№ РµРґРёРЅРёС†С‹
         direction = direction.normalized;
 
-        //двигаем капсулу по NavMesh сетке
+        //РґРІРёРіР°РµРј РєР°РїСЃСѓР»Сѓ РїРѕ NavMesh СЃРµС‚РєРµ
         agent.Move(direction * playerSpeed * Time.deltaTime);
     }
+
+    /*private void MovePlayer()
+    {
+        Vector2 movementInput = Vector2.zero;
+
+        // РЈРїСЂР°РІР»РµРЅРёРµ РЅР° РџРљ С‡РµСЂРµР· WASD
+        if (Input.GetKey(KeyCode.W))
+            movementInput.y += 1f;
+
+        if (Input.GetKey(KeyCode.S))
+            movementInput.y -= 1f;
+
+        if (Input.GetKey(KeyCode.A))
+            movementInput.x -= 1f;
+
+        if (Input.GetKey(KeyCode.D))
+            movementInput.x += 1f;
+
+        // РЈРїСЂР°РІР»РµРЅРёРµ РЅР° С‚РµР»РµС„РѕРЅРµ С‡РµСЂРµР· РґР¶РѕР№СЃС‚РёРє
+        if (mobileJoystick != null)
+        {
+            movementInput += mobileJoystick.InputDirection;
+        }
+
+        // РћРіСЂР°РЅРёС‡РёРІР°РµРј СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРё РґРІРёР¶РµРЅРёРё РїРѕ РґРёР°РіРѕРЅР°Р»Рё
+        movementInput = Vector2.ClampMagnitude(movementInput, 1f);
+
+        // РџРµСЂРµРІРѕРґРёРј РІРІРѕРґ РІ РЅР°РїСЂР°РІР»РµРЅРёРµ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РєР°РјРµСЂС‹
+        Vector3 direction =
+            cam.forward * movementInput.y +
+            cam.right * movementInput.x;
+
+        // РРіСЂРѕРє РЅРµ РґРѕР»Р¶РµРЅ РґРІРёРіР°С‚СЊСЃСЏ РІРІРµСЂС… РёР»Рё РІРЅРёР·
+        direction.y = 0f;
+        direction.Normalize();
+
+        // Р”РІРёРіР°РµРј РёРіСЂРѕРєР° С‡РµСЂРµР· NavMeshAgent
+        agent.Move(direction * playerSpeed * Time.deltaTime);
+    } */ //try for android
+
     public void EnterTrain(Transform train)
     {
         isInTrain = true;
         transform.SetParent(train, true);
 
-        //Agent больше не должен самостоятельно менять Transform игрока!!!
+        //Agent Р±РѕР»СЊС€Рµ РЅРµ РґРѕР»Р¶РµРЅ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РјРµРЅСЏС‚СЊ Transform РёРіСЂРѕРєР°!!!
         agent.updatePosition = false;
         agent.updateRotation = false;
 
-        //синхронизируем Agent с игроком
+        //СЃРёРЅС…СЂРѕРЅРёР·РёСЂСѓРµРј Agent СЃ РёРіСЂРѕРєРѕРј
         agent.nextPosition = transform.position;
     }
 
@@ -89,14 +131,14 @@ public class PlayerController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-        //вращаем саму капсулу влево-вправо
+        //РІСЂР°С‰Р°РµРј СЃР°РјСѓ РєР°РїСЃСѓР»Сѓ РІР»РµРІРѕ-РІРїСЂР°РІРѕ
         transform.Rotate(Vector3.up * mouseX);
 
-        //расчет и ограничение угла вверх-вниз для камеры
+        //СЂР°СЃС‡РµС‚ Рё РѕРіСЂР°РЅРёС‡РµРЅРёРµ СѓРіР»Р° РІРІРµСЂС…-РІРЅРёР· РґР»СЏ РєР°РјРµСЂС‹
         xRotation = xRotation - mouseY;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
-        //вращаем камеру
+        //РІСЂР°С‰Р°РµРј РєР°РјРµСЂСѓ
         cam.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,11 +17,11 @@ public class TrainGroupHandler : MonoBehaviour
         trainGroup_animator.SetTrigger("LaunchGUITrain");
         if (way == 1)
         {
-            direction.text = "Íåìàğøàíñê³ Ñàä << ÀİĞÀÄĞÎÌÍÀß << Êàâàëüñêàÿ Ñëàáàäà";
+            direction.text = "ĞĞµĞ¼Ğ°Ñ€ÑˆĞ°Ğ½ÑĞºÑ– Ğ¡Ğ°Ğ´ << ĞĞ­Ğ ĞĞ”Ğ ĞĞœĞĞĞ¯ << ĞšĞ°Ğ²Ğ°Ğ»ÑŒÑĞºĞ°Ñ Ğ¡Ğ»Ğ°Ğ±Ğ°Ğ´Ğ°";
         }
         else
         {
-            direction.text = "Êàâàëüñêàÿ Ñëàáàäà << ÀİĞÀÄĞÎÌÍÀß << Íåìàğøàíñê³ Ñàä";
+            direction.text = "ĞšĞ°Ğ²Ğ°Ğ»ÑŒÑĞºĞ°Ñ Ğ¡Ğ»Ğ°Ğ±Ğ°Ğ´Ğ° << ĞĞ­Ğ ĞĞ”Ğ ĞĞœĞĞĞ¯ << ĞĞµĞ¼Ğ°Ñ€ÑˆĞ°Ğ½ÑĞºÑ– Ğ¡Ğ°Ğ´";
         }
         for (int seconds = 35; seconds >= 27; seconds--)
         {
