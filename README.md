@@ -24,3 +24,31 @@
 ### О репозитории
 
 Репозиторий содержит C#-скрипты проекта Minsk Metro Prototype. Сцены Unity, модели, текстуры и остальные ассеты (игровые ресурсы) не включены
+
+### Проект в СМИ
+
+- **12.10.2026 — [Onlíner](https://tech.onliner.by/2026/10/12/minsk-metro-prototype)** — «Белорус воссоздал минское метро в игровом симуляторе». Статья об игре, её разработке на Unity и C#, станции «Аэродромная» и поезде «Минск-2024». Содержит видео игрового процесса.
+
+- **11.10.2026 — [CityDog.io](https://citydog.io/post/zaden-metro-prototype/)** — «Беларус сделал интерактивный прототип станции минского метро. По ней можно погулять». Рассказ о воссоздании станции и поезда, игровых механиках и бесплатной демоверсии.
+
+- **12.10.2026 — [Marshryt.by](https://marshryt.by/news/minchanin-sozdal-igrovoy-prototip-minskogo-metro/)** — «Минчанин создал прототип метро со станцией „Аэродромная“». Описание проекта, используемых технологий и планов дальнейшего развития.
+
+- **13.10.2026 — [Blizko.by](https://blizko.by/notes/belorus-vypustil-simulyator-minskogo-metro-v-nem-mozhno-proytis-po-aerodromnoy-_mn.amp)** — «Белорус выпустил симулятор минского метро. В нем можно пройтись по „Аэродромной“». Новость о доступной демоверсии, исследовании станции и поездке в вагоне.
+
+- **13.10.2026 — [МедиаБрест](https://mediabrest.by/news/daydzhest/ot-stantsii-aerodromnaya-do-tramvaynyh-strelok-kak-v-belarusi-ozhivlyayut-gorodskoy-transport-v-simulyatorah)** — «От станции „Аэродромная“ до трамвайных стрелок: как в Беларуси оживляют городской транспорт в симуляторах». Обзор белорусских транспортных симуляторов, включающий отдельный раздел о Minsk Metro Prototype.
+
+- **12–13.10.2026 — [Супер Могилёв в Instagram](https://www.instagram.com/p/DeZP1RdA8sS/)** — публикация о прототипе минского метро с изображением игры.
+
+- **13.10.2026 — [Минск. Главное! в Telegram](https://t.me/minsk_gl)** — видеопубликация с игровым процессом Minsk Metro Prototype.
+
+- **13.10.2026 — [MINSK NEWS в Telegram](https://t.me/vestiminska)** — видеопубликация с игровым процессом Minsk Metro Prototype.
+
+- **13.10.2026 — [Скидки и новинки Беларуси в Telegram](https://t.me/belaskidki)** — короткая новость о 21-летнем минчанине, создавшем симулятор метро.
+
+- **12–13.10.2026 — [PlayerOne.cc](https://playerone.cc/news/belorus-vossozdal-minskoe-metro-v-igrovom/540137)** — перепубликация материала Onlíner с указанием исходного источника.
+
+## Собственные материалы о разработке
+
+- **08.10.2026 — [DTF](https://dtf.ru/gamedev/5342160-vossozhenie-stantsii-metro-aerodromnaya-i-poezda-minsk-2024-na-unity)** — «Как я воссоздал станцию метро „Аэродромная“ и поезд „Минск-2024“ в вокселях на Unity (URP)». Подробный рассказ о моделировании, оптимизации геометрии, программировании на C# и настройке освещения.
+
+- **10.10.2026 — [Пикабу](https://pikabu.ru/story/vossozdal_novuyu_stantsiyu_minskogo_metro_ayerodromnaya_i_poezd_minsk2024_v_3d_v_yeto_mozhno_poigrat_14404710)** — «Воссоздал новую станцию минского метро „Аэродромная“ и поезд „Минск-2024“ в 3D. В это можно поиграть!». Авторская публикация с описанием разработки и ссылкой на демоверсию.
